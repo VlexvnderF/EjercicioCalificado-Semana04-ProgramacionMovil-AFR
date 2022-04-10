@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<EditText
+    android:id="@+id/ed_nom"
+    android:layout_width="275dp"
+    android:layout_height="38dp"
+    android:layout_marginTop="36dp"
+    android:ems="10"
+    android:inputType="text"
+    android:hint="Nombre"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.497"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<EditText
+    android:id="@+id/ed_correo"
+    android:layout_width="275dp"
+    android:layout_height="37dp"
+    android:layout_marginTop="36dp"
+    android:ems="10"
+    android:inputType="textEmailAddress"
+    android:hint="Correo"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.507"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ed_nom" />
+
+<EditText
+    android:id="@+id/ed_ofi"
+    android:layout_width="275dp"
+    android:layout_height="43dp"
+    android:layout_marginTop="36dp"
+    android:ems="10"
+    android:inputType="text"
+    android:hint="Oficina"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.507"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ed_correo" />
+
+<EditText
+    android:id="@+id/ed_tel"
+    android:layout_width="274dp"
+    android:layout_height="37dp"
+    android:layout_marginTop="36dp"
+    android:ems="10"
+    android:inputType="phone"
+    android:hint="Número telefonico"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.503"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ed_ofi" />
+
+<Button
+
+    android:id="@+id/button2"
+    android:layout_width="351dp"
+    android:layout_height="46dp"
+    android:drawableLeft="@android:drawable/ic_menu_save"
+    android:text="Guardar"
+    android:onClick="guardar_datos"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.975"
+    tools:ignore="OnClick" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
