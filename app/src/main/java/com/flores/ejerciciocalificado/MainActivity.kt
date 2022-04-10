@@ -3,12 +3,9 @@ package com.flores.ejerciciocalificado
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
@@ -109,8 +106,7 @@ class MainActivity : AppCompatActivity() {
     fun openWhatsApp(view: android.view.View) {
         try {
             val text = "This is a test" // Replace with your message.
-            val telefono = textView8.text.toString()
-
+            val telefono = tvPhoneInput.text.toString()
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("http://api.whatsapp.com/send?phone=$telefono&text=$text")
             startActivity(intent)
