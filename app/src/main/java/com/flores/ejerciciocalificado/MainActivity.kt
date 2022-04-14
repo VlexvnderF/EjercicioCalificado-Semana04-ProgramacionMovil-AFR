@@ -3,6 +3,7 @@ package com.flores.ejerciciocalificado
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -103,16 +104,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openWhatsApp(view: android.view.View) {
+    fun abrirWhatsApp(view: android.view.View) {
         try {
-            val text = "This is a test" // Replace with your message.
-            val telefono = tvPhoneInput.text.toString()
+            val text = "Esto es una prank"
+            val telefono = textView8.text.toString()
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("http://api.whatsapp.com/send?phone=$telefono&text=$text")
+            intent.data = Uri.parse("http://api.whatsapp.com/send?phone=51$telefono&text=$text")
             startActivity(intent)
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+    fun enviarMensaje(view:android.view.View){
+        val nombre = textView2.text.toString()
+        val telefono = textView8.text.toString()
+        val uri = Uri.parse("smsto: $telefono")
+        val it = Intent(Intent.ACTION_SENDTO,uri)
+        it.putExtra("sms_body", "Hola $nombre que bonita es la distinta cuando sé que volveras")
+        startActivity(it)
+    }
+
+    fun llamar(view:android.view.View) {
+        val telefono = textView8.text.toString()
+        val call = Uri.parse("tel:$telefono")
+        val intent = Intent(Intent.ACTION_DIAL, call)
+        startActivity(intent)
     }
 
 

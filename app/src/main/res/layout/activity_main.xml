@@ -49,7 +49,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="José Perez" />
+                android:text="Alex" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -86,7 +86,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2481534" />
+                android:text="956146666" />
 
             <Button
                 android:id="@+id/button5"
@@ -109,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:clickable="true"
+                    android:onClick="llamar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -122,6 +123,7 @@
                     android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:clickable="true"
+                    android:onClick="enviarMensaje"
                     android:nextFocusLeft="@+id/ic_call"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -135,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:baselineAligned="false"
                     android:clickable="true"
+                    android:onClick="abrirWhatsApp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2"
                     app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
