@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.flores.ejerciciocalificado.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
@@ -19,33 +20,39 @@ const val ACTIVITY_A_REQUEST=991
 const val ACTIVITY_B_REQUEST=992
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        listenerCallButtons()
+
         val extras = this.intent.extras
 
         if (extras != null) {
             if (extras.get(PARAMETER_EXTRA_NAME) != null) {
-                textView2.text = extras.getString(PARAMETER_EXTRA_NAME)
+                binding.textView2.text = extras.getString(PARAMETER_EXTRA_NAME)
             }
 
             if (extras.get(PARAMETER_EXTRA_GMAIL) != null) {
-                textView4.text = extras.getString(PARAMETER_EXTRA_GMAIL)
+                binding.textView4.text = extras.getString(PARAMETER_EXTRA_GMAIL)
             }
 
             if (extras.get(PARAMETER_EXTRA_OFFICE) != null) {
-                textView6.text = extras.getString(PARAMETER_EXTRA_OFFICE)
+                binding.textView6.text = extras.getString(PARAMETER_EXTRA_OFFICE)
             }
             if (extras.get(PARAMETER_EXTRA_PHONE) != null) {
-                textView8.text = extras.getString(PARAMETER_EXTRA_PHONE)
+                binding.textView8.text = extras.getString(PARAMETER_EXTRA_PHONE)
             }
         }
     }
     fun sendExplicit(view: android.view.View) {
-        val nombre = textView2.text.toString()
-        val correo = textView4.text.toString()
-        val oficina = textView6.text.toString()
-        val telf = textView8.text.toString()
+        val nombre = binding.textView2.text.toString()
+        val correo = binding.textView4.text.toString()
+        val oficina = binding.textView6.text.toString()
+        val telf = binding.textView8.text.toString()
 
         validateInputFields(nombre, correo, oficina, telf)
         goDetailActivity(nombre, correo, oficina, telf)
@@ -103,34 +110,37 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    fun abrirWhatsApp(view: android.view.View) {
-        try {
-            val text = "Esto es una prank"
+    private fun listenerCallButtons(){
+        binding.Llamar.setOnClickListener{
             val telefono = textView8.text.toString()
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("http://api.whatsapp.com/send?phone=51$telefono&text=$text")
+            val call = Uri.parse("tel:$telefono")
+            val intent = Intent(Intent.ACTION_DIAL, call)
             startActivity(intent)
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
-    }
-    fun enviarMensaje(view:android.view.View){
-        val nombre = textView2.text.toString()
-        val telefono = textView8.text.toString()
-        val uri = Uri.parse("smsto: $telefono")
-        val it = Intent(Intent.ACTION_SENDTO,uri)
-        it.putExtra("sms_body", "Hola $nombre que bonita es la distinta cuando sé que volveras")
-        startActivity(it)
-    }
 
-    fun llamar(view:android.view.View) {
-        val telefono = textView8.text.toString()
-        val call = Uri.parse("tel:$telefono")
-        val intent = Intent(Intent.ACTION_DIAL, call)
-        startActivity(intent)
-    }
+        binding.AbrirWhatsApp.setOnClickListener{
+            try {
+                val text = "Esto es una prank"
+                val telefono = textView8.text.toString()
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse("http://api.whatsapp.com/send?phone=51$telefono&text=$text")
+                startActivity(intent)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
 
+        binding.enviarMensaje.setOnClickListener{
+            val nombre = textView2.text.toString()
+            val telefono = textView8.text.toString()
+            val uri = Uri.parse("smsto: $telefono")
+            val it = Intent(Intent.ACTION_SENDTO,uri)
+            it.putExtra("sms_body", "Hola $nombre que bonita es la distinta cuando sé que volveras")
+            startActivity(it)
+
+        }
+
+    }
 
 
 

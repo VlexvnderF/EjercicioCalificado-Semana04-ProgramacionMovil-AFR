@@ -104,12 +104,12 @@
                 tools:layout_editor_absoluteY="308dp">
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButton"
+                    android:id="@+id/Llamar"
                     android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:clickable="true"
-                    android:onClick="llamar"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -117,13 +117,13 @@
                     tools:ignore="MissingConstraints" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButton2"
+                    android:id="@+id/enviarMensaje"
                     android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:clickable="true"
-                    android:onClick="enviarMensaje"
+
                     android:nextFocusLeft="@+id/ic_call"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -132,15 +132,15 @@
                     tools:ignore="MissingConstraints" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingActionButton3"
+                    android:id="@+id/AbrirWhatsApp"
                     android:layout_width="190dp"
                     android:layout_height="wrap_content"
                     android:baselineAligned="false"
                     android:clickable="true"
-                    android:onClick="abrirWhatsApp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2"
-                    app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+                    app:layout_constraintEnd_toStartOf="@+id/enviarMensaje"
+                    app:layout_constraintStart_toEndOf="@+id/Llamar"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_action_phone"
                     tools:ignore="MissingConstraints" />
